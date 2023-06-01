@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace POS_SYSTEM
 {
-    public partial class EntryProduct : MaterialForm
+    public partial class EntryProductAdd : MaterialForm
     {
         readonly MaterialSkin.MaterialSkinManager materialSkinManager;
         MySqlConnection mysqliconnection;
@@ -22,9 +22,8 @@ namespace POS_SYSTEM
         string sql;
         private DataTable dataTable = null;
         BindingSource bindingSource = new BindingSource();
-        public static DataGridView glbldgv1;
 
-        public EntryProduct()
+        public EntryProductAdd()
         {
             InitializeComponent();
 
@@ -38,13 +37,44 @@ namespace POS_SYSTEM
 
         private void admindashboard_Load(object sender, EventArgs e)
         {
-            loadData();
-            glbldgv1 = dgv1;
+            
         }
 
         private void admindashboard_FormClosing(object sender, FormClosingEventArgs e)
         {
             /*Application.Exit();*/
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                mysqliconnection = new MySqlConnection(mysqlconnection.MyConnection2);
+                mysqliconnection.Open();
+
+                sql = "INSERT INTO `tblproduct`(`product_id`, `product_code`, `product_name`, `unit_price`, `UM`)" +
+                    " VALUES (NULL,@_productcode,@_productname,@_unitprice,@_um)";
+                mycommand = new MySqlCommand(sql, mysqliconnection);
+                mycommand.Parameters.Add("_productcode", MySqlDbType.VarChar).Value = txtProductCode.Text;
+                mycommand.Parameters.Add("_productname", MySqlDbType.VarChar).Value = txtProductName.Text;
+                mycommand.Parameters.Add("_unitprice", MySqlDbType.VarChar).Value = txtUP.Text;
+                mycommand.Parameters.Add("_um", MySqlDbType.VarChar).Value = txtUM.Text;
+                int n1 = mycommand.ExecuteNonQuery();
+                mysqliconnection.Close();
+
+                MessageBox.Show("Data Save!");
+                loadData();
+            }
+            catch (Exception ex)
+            {
+                System.Windows.Forms.MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                //dr.Close();
+                mysqliconnection.Close();
+            }
+            
         }
 
         private void loadData()
@@ -70,7 +100,7 @@ namespace POS_SYSTEM
             ColumnProductCode.Visible = true;
             ColumnProductCode.ReadOnly = true;
             ColumnProductCode.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgv1.Columns.Add(ColumnProductCode);
+            EntryProduct.glbldgv1.Columns.Add(ColumnProductCode);
 
             DataGridViewTextBoxColumn ColumnProductName = new DataGridViewTextBoxColumn();
             ColumnProductName.HeaderText = "Product Name";
@@ -81,7 +111,7 @@ namespace POS_SYSTEM
             ColumnProductName.Visible = true;
             ColumnProductName.ReadOnly = true;
             ColumnProductName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgv1.Columns.Add(ColumnProductName);
+            EntryProduct.glbldgv1.Columns.Add(ColumnProductName);
 
 
             DataGridViewTextBoxColumn ColumnProductPrice = new DataGridViewTextBoxColumn();
@@ -93,7 +123,7 @@ namespace POS_SYSTEM
             ColumnProductPrice.Visible = true;
             ColumnProductPrice.ReadOnly = true;
             ColumnProductPrice.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgv1.Columns.Add(ColumnProductPrice);
+            EntryProduct.glbldgv1.Columns.Add(ColumnProductPrice);
 
             DataGridViewTextBoxColumn ColumnUM = new DataGridViewTextBoxColumn();
             ColumnUM.HeaderText = "UM";
@@ -104,28 +134,15 @@ namespace POS_SYSTEM
             ColumnUM.Visible = true;
             ColumnUM.ReadOnly = true;
             ColumnUM.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            dgv1.Columns.Add(ColumnUM);
+            EntryProduct.glbldgv1.Columns.Add(ColumnUM);
 
 
 
-            dgv1.DataSource = bindingSource;
-            dgv1.AllowUserToAddRows = false;
+            EntryProduct.glbldgv1.DataSource = bindingSource;
+            EntryProduct.glbldgv1.AllowUserToAddRows = false;
             mysqliconnection.Close();
 
-            dgv1.Columns[2].DefaultCellStyle.Format = "N2";
-        }
-
-        private void txtSearch_TextChanged_1(object sender, EventArgs e)
-        {
-            DataView dv = dataTable.DefaultView;
-            dv.RowFilter = "product_name LIKE '" + txtSearch.Text + "%' OR product_code LIKE '" + txtSearch.Text + "%'";
-            dgv1.DataSource = dv;
-        }
-
-        private void addproduct_Click(object sender, EventArgs e)
-        {
-            EntryProductAdd entryProductAdd = new EntryProductAdd();
-            entryProductAdd.Show();
+            EntryProduct.glbldgv1.Columns[2].DefaultCellStyle.Format = "N2";
         }
     }
 }

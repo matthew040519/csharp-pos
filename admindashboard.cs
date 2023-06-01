@@ -39,5 +39,11 @@ namespace POS_SYSTEM
         {
             Application.Exit();
         }
+
+        private void productToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EntryProduct frmproduct = new EntryProduct();
+            frmproduct.Show();
+        }
     }
 }

@@ -36,3 +36,4 @@ C:\Users\ACER\source\repos\POS_SYSTEM\obj\Debug\POS_SYSTEM.exe
 C:\Users\ACER\source\repos\POS_SYSTEM\obj\Debug\POS_SYSTEM.pdb
 C:\Users\ACER\source\repos\POS_SYSTEM\obj\Debug\POS_SYSTEM.admindashboard.resources
 C:\Users\ACER\source\repos\POS_SYSTEM\bin\Debug\Guna.UI2.dll
+C:\Users\ACER\source\repos\POS_SYSTEM\obj\Debug\POS_SYSTEM.EntryProduct.resources

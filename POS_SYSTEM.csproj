@@ -94,6 +94,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntryProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntryProduct.Designer.cs">
+      <DependentUpon>EntryProduct.cs</DependentUpon>
+    </Compile>
     <Compile Include="admindashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -109,6 +115,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="EntryProduct.resx">
+      <DependentUpon>EntryProduct.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="admindashboard.resx">
       <DependentUpon>admindashboard.cs</DependentUpon>
     </EmbeddedResource>

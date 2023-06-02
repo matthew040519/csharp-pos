@@ -45,5 +45,11 @@ namespace POS_SYSTEM
             EntryProduct frmproduct = new EntryProduct();
             frmproduct.Show();
         }
+
+        private void categoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EntryCategory entryCategory = new EntryCategory();
+            entryCategory.Show();
+        }
     }
 }

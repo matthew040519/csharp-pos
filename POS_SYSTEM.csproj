@@ -94,6 +94,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="EntryCategory.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntryCategory.Designer.cs">
+      <DependentUpon>EntryCategory.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EntryCategoryAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntryCategoryAdd.Designer.cs">
+      <DependentUpon>EntryCategoryAdd.cs</DependentUpon>
+    </Compile>
     <Compile Include="EntryProductAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -121,6 +133,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="EntryCategory.resx">
+      <DependentUpon>EntryCategory.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntryCategoryAdd.resx">
+      <DependentUpon>EntryCategoryAdd.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EntryProductAdd.resx">
       <DependentUpon>EntryProductAdd.cs</DependentUpon>
     </EmbeddedResource>

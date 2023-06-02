@@ -22,6 +22,7 @@ namespace POS_SYSTEM
         string sql;
         private DataTable dataTable = null;
         BindingSource bindingSource = new BindingSource();
+        ClsComboBox ClsComboBox1 = new ClsComboBox();
 
         public EntryProductAdd()
         {
@@ -37,7 +38,17 @@ namespace POS_SYSTEM
 
         private void admindashboard_Load(object sender, EventArgs e)
         {
-            
+            buildcboCustCode();
+        }
+
+        private void buildcboCustCode()
+        {
+            cboCategory.DataSource = null;
+            ClsComboBox1.ALCategory.Clear();
+            ClsComboBox1.ClsBuildCategory();
+            this.cboCategory.DataSource = (ClsComboBox1.ALCategory);
+            this.cboCategory.DisplayMember = "Display";
+            this.cboCategory.ValueMember = "Value";
         }
 
         private void admindashboard_FormClosing(object sender, FormClosingEventArgs e)
@@ -52,12 +63,13 @@ namespace POS_SYSTEM
                 mysqliconnection = new MySqlConnection(mysqlconnection.MyConnection2);
                 mysqliconnection.Open();
 
-                sql = "INSERT INTO `tblproduct`(`product_id`, `product_code`, `product_name`, `unit_price`, `UM`)" +
-                    " VALUES (NULL,@_productcode,@_productname,@_unitprice,@_um)";
+                sql = "INSERT INTO `tblproduct`(`product_id`, `product_code`, `product_name`, `unit_price`, `category_id`, `UM`)" +
+                    " VALUES (NULL,@_productcode,@_productname,@_unitprice,@_categoryid,@_um)";
                 mycommand = new MySqlCommand(sql, mysqliconnection);
                 mycommand.Parameters.Add("_productcode", MySqlDbType.VarChar).Value = txtProductCode.Text;
                 mycommand.Parameters.Add("_productname", MySqlDbType.VarChar).Value = txtProductName.Text;
                 mycommand.Parameters.Add("_unitprice", MySqlDbType.VarChar).Value = txtUP.Text;
+                mycommand.Parameters.Add("_categoryid", MySqlDbType.VarChar).Value = cboCategory.SelectedValue.ToString();
                 mycommand.Parameters.Add("_um", MySqlDbType.VarChar).Value = txtUM.Text;
                 int n1 = mycommand.ExecuteNonQuery();
                 mysqliconnection.Close();
@@ -79,6 +91,10 @@ namespace POS_SYSTEM
 
         private void loadData()
         {
+            EntryProduct.glbldgv1.DataSource = null;
+            EntryProduct.glbldgv1.Rows.Clear();
+            EntryProduct.glbldgv1.Columns.Clear();
+
             mysqliconnection = new MySqlConnection(mysqlconnection.MyConnection2);
             mysqliconnection.Open();
 

@@ -38,6 +38,8 @@ namespace POS_SYSTEM
             this.txtUP = new MaterialSkin.Controls.MaterialTextBox();
             this.materialLabel4 = new MaterialSkin.Controls.MaterialLabel();
             this.btnSave = new MaterialSkin.Controls.MaterialButton();
+            this.materialLabel5 = new MaterialSkin.Controls.MaterialLabel();
+            this.cboCategory = new MaterialSkin.Controls.MaterialComboBox();
             this.SuspendLayout();
             // 
             // materialLabel1
@@ -45,7 +47,7 @@ namespace POS_SYSTEM
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(10, 160);
+            this.materialLabel1.Location = new System.Drawing.Point(10, 91);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(96, 19);
@@ -57,9 +59,9 @@ namespace POS_SYSTEM
             this.txtProductCode.AnimateReadOnly = false;
             this.txtProductCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtProductCode.Depth = 0;
-            this.txtProductCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtProductCode.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtProductCode.LeadingIcon = null;
-            this.txtProductCode.Location = new System.Drawing.Point(123, 129);
+            this.txtProductCode.Location = new System.Drawing.Point(123, 76);
             this.txtProductCode.MaxLength = 50;
             this.txtProductCode.MouseState = MaterialSkin.MouseState.OUT;
             this.txtProductCode.Multiline = false;
@@ -74,9 +76,9 @@ namespace POS_SYSTEM
             this.txtProductName.AnimateReadOnly = false;
             this.txtProductName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtProductName.Depth = 0;
-            this.txtProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtProductName.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtProductName.LeadingIcon = null;
-            this.txtProductName.Location = new System.Drawing.Point(123, 185);
+            this.txtProductName.Location = new System.Drawing.Point(123, 132);
             this.txtProductName.MaxLength = 50;
             this.txtProductName.MouseState = MaterialSkin.MouseState.OUT;
             this.txtProductName.Multiline = false;
@@ -91,7 +93,7 @@ namespace POS_SYSTEM
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.Location = new System.Drawing.Point(10, 216);
+            this.materialLabel2.Location = new System.Drawing.Point(10, 149);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
             this.materialLabel2.Size = new System.Drawing.Size(102, 19);
@@ -103,7 +105,7 @@ namespace POS_SYSTEM
             this.materialLabel3.AutoSize = true;
             this.materialLabel3.Depth = 0;
             this.materialLabel3.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel3.Location = new System.Drawing.Point(10, 276);
+            this.materialLabel3.Location = new System.Drawing.Point(10, 212);
             this.materialLabel3.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel3.Name = "materialLabel3";
             this.materialLabel3.Size = new System.Drawing.Size(25, 19);
@@ -115,9 +117,9 @@ namespace POS_SYSTEM
             this.txtUM.AnimateReadOnly = false;
             this.txtUM.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUM.Depth = 0;
-            this.txtUM.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtUM.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtUM.LeadingIcon = null;
-            this.txtUM.Location = new System.Drawing.Point(123, 245);
+            this.txtUM.Location = new System.Drawing.Point(123, 192);
             this.txtUM.MaxLength = 50;
             this.txtUM.MouseState = MaterialSkin.MouseState.OUT;
             this.txtUM.Multiline = false;
@@ -132,9 +134,9 @@ namespace POS_SYSTEM
             this.txtUP.AnimateReadOnly = false;
             this.txtUP.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUP.Depth = 0;
-            this.txtUP.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtUP.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtUP.LeadingIcon = null;
-            this.txtUP.Location = new System.Drawing.Point(123, 301);
+            this.txtUP.Location = new System.Drawing.Point(123, 248);
             this.txtUP.MaxLength = 50;
             this.txtUP.MouseState = MaterialSkin.MouseState.OUT;
             this.txtUP.Multiline = false;
@@ -149,7 +151,7 @@ namespace POS_SYSTEM
             this.materialLabel4.AutoSize = true;
             this.materialLabel4.Depth = 0;
             this.materialLabel4.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel4.Location = new System.Drawing.Point(10, 332);
+            this.materialLabel4.Location = new System.Drawing.Point(10, 264);
             this.materialLabel4.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel4.Name = "materialLabel4";
             this.materialLabel4.Size = new System.Drawing.Size(68, 19);
@@ -163,7 +165,7 @@ namespace POS_SYSTEM
             this.btnSave.Depth = 0;
             this.btnSave.HighEmphasis = true;
             this.btnSave.Icon = null;
-            this.btnSave.Location = new System.Drawing.Point(259, 360);
+            this.btnSave.Location = new System.Drawing.Point(259, 384);
             this.btnSave.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnSave.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSave.Name = "btnSave";
@@ -176,11 +178,47 @@ namespace POS_SYSTEM
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
+            // materialLabel5
+            // 
+            this.materialLabel5.AutoSize = true;
+            this.materialLabel5.Depth = 0;
+            this.materialLabel5.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.materialLabel5.Location = new System.Drawing.Point(10, 321);
+            this.materialLabel5.MouseState = MaterialSkin.MouseState.HOVER;
+            this.materialLabel5.Name = "materialLabel5";
+            this.materialLabel5.Size = new System.Drawing.Size(64, 19);
+            this.materialLabel5.TabIndex = 9;
+            this.materialLabel5.Text = "Category";
+            // 
+            // cboCategory
+            // 
+            this.cboCategory.AutoResize = false;
+            this.cboCategory.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.cboCategory.Depth = 0;
+            this.cboCategory.DrawMode = System.Windows.Forms.DrawMode.OwnerDrawVariable;
+            this.cboCategory.DropDownHeight = 174;
+            this.cboCategory.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboCategory.DropDownWidth = 121;
+            this.cboCategory.Font = new System.Drawing.Font("Roboto Medium", 14F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Pixel);
+            this.cboCategory.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
+            this.cboCategory.FormattingEnabled = true;
+            this.cboCategory.IntegralHeight = false;
+            this.cboCategory.ItemHeight = 43;
+            this.cboCategory.Location = new System.Drawing.Point(123, 304);
+            this.cboCategory.MaxDropDownItems = 4;
+            this.cboCategory.MouseState = MaterialSkin.MouseState.OUT;
+            this.cboCategory.Name = "cboCategory";
+            this.cboCategory.Size = new System.Drawing.Size(264, 49);
+            this.cboCategory.StartIndex = 0;
+            this.cboCategory.TabIndex = 10;
+            // 
             // EntryProductAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(409, 414);
+            this.ClientSize = new System.Drawing.Size(409, 446);
+            this.Controls.Add(this.cboCategory);
+            this.Controls.Add(this.materialLabel5);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtUP);
             this.Controls.Add(this.materialLabel4);
@@ -211,5 +249,7 @@ namespace POS_SYSTEM
         private MaterialSkin.Controls.MaterialTextBox txtUP;
         private MaterialSkin.Controls.MaterialLabel materialLabel4;
         private MaterialSkin.Controls.MaterialButton btnSave;
+        private MaterialSkin.Controls.MaterialLabel materialLabel5;
+        private MaterialSkin.Controls.MaterialComboBox cboCategory;
     }
 }

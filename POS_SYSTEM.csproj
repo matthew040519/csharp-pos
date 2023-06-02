@@ -94,6 +94,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Clsaddvalue.cs" />
+    <Compile Include="ClsComboBox.cs" />
     <Compile Include="EntryCategory.cs">
       <SubType>Form</SubType>
     </Compile>

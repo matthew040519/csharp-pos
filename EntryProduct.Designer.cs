@@ -29,37 +29,35 @@ namespace POS_SYSTEM
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.dgv1 = new System.Windows.Forms.DataGridView();
             this.addproduct = new MaterialSkin.Controls.MaterialButton();
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
             this.txtSearch = new System.Windows.Forms.TextBox();
+            this.btnSave = new MaterialSkin.Controls.MaterialButton();
             ((System.ComponentModel.ISupportInitialize)(this.dgv1)).BeginInit();
             this.SuspendLayout();
             // 
             // dgv1
             // 
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.Thistle;
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Empty;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Empty;
-            this.dgv1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.Thistle;
+            this.dgv1.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgv1.BackgroundColor = System.Drawing.Color.FloralWhite;
             this.dgv1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.MediumBlue;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dgv1.DefaultCellStyle = dataGridViewCellStyle2;
-            this.dgv1.Location = new System.Drawing.Point(7, 110);
-            this.dgv1.Margin = new System.Windows.Forms.Padding(2);
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.MediumBlue;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dgv1.DefaultCellStyle = dataGridViewCellStyle8;
+            this.dgv1.Location = new System.Drawing.Point(10, 165);
             this.dgv1.Name = "dgv1";
             this.dgv1.RowHeadersWidth = 62;
             this.dgv1.RowTemplate.Height = 28;
-            this.dgv1.Size = new System.Drawing.Size(795, 323);
+            this.dgv1.Size = new System.Drawing.Size(1192, 484);
             this.dgv1.TabIndex = 0;
             // 
             // addproduct
@@ -69,8 +67,8 @@ namespace POS_SYSTEM
             this.addproduct.Depth = 0;
             this.addproduct.HighEmphasis = true;
             this.addproduct.Icon = null;
-            this.addproduct.Location = new System.Drawing.Point(680, 68);
-            this.addproduct.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.addproduct.Location = new System.Drawing.Point(1081, 96);
+            this.addproduct.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.addproduct.MouseState = MaterialSkin.MouseState.HOVER;
             this.addproduct.Name = "addproduct";
             this.addproduct.NoAccentTextColor = System.Drawing.Color.Empty;
@@ -87,8 +85,7 @@ namespace POS_SYSTEM
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(15, 85);
-            this.materialLabel1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.materialLabel1.Location = new System.Drawing.Point(7, 107);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
             this.materialLabel1.Size = new System.Drawing.Size(50, 19);
@@ -97,24 +94,45 @@ namespace POS_SYSTEM
             // 
             // txtSearch
             // 
-            this.txtSearch.Location = new System.Drawing.Point(108, 74);
-            this.txtSearch.Margin = new System.Windows.Forms.Padding(2);
+            this.txtSearch.Location = new System.Drawing.Point(63, 90);
             this.txtSearch.Multiline = true;
             this.txtSearch.Name = "txtSearch";
-            this.txtSearch.Size = new System.Drawing.Size(557, 30);
+            this.txtSearch.Size = new System.Drawing.Size(1011, 43);
             this.txtSearch.TabIndex = 3;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged_1);
             // 
+            // btnSave
+            // 
+            this.btnSave.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
+            this.btnSave.Depth = 0;
+            this.btnSave.HighEmphasis = true;
+            this.btnSave.Icon = null;
+            this.btnSave.Location = new System.Drawing.Point(1081, 678);
+            this.btnSave.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnSave.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnSave.Name = "btnSave";
+            this.btnSave.NoAccentTextColor = System.Drawing.Color.Empty;
+            this.btnSave.Size = new System.Drawing.Size(121, 36);
+            this.btnSave.TabIndex = 4;
+            this.btnSave.Text = "Save";
+            this.btnSave.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
+            this.btnSave.UseAccentColor = false;
+            this.btnSave.UseVisualStyleBackColor = true;
+            this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
+            // 
             // EntryProduct
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(807, 438);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(1210, 724);
+            this.Controls.Add(this.btnSave);
             this.Controls.Add(this.txtSearch);
             this.Controls.Add(this.materialLabel1);
             this.Controls.Add(this.addproduct);
             this.Controls.Add(this.dgv1);
+            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.Name = "EntryProduct";
+            this.Padding = new System.Windows.Forms.Padding(4, 96, 4, 4);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Product";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.admindashboard_FormClosing);
@@ -131,5 +149,6 @@ namespace POS_SYSTEM
         private MaterialSkin.Controls.MaterialButton addproduct;
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
         private System.Windows.Forms.TextBox txtSearch;
+        private MaterialSkin.Controls.MaterialButton btnSave;
     }
 }

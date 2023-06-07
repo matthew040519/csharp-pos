@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace POS_SYSTEM
 {
-    public partial class EntryCategoryAdd : MaterialForm
+    public partial class EntryCustomer : MaterialForm
     {
         readonly MaterialSkin.MaterialSkinManager materialSkinManager;
         MySqlConnection mysqliconnection;
@@ -22,8 +22,9 @@ namespace POS_SYSTEM
         string sql;
         private DataTable dataTable = null;
         BindingSource bindingSource = new BindingSource();
+        public static DataGridView glbldgv1;
 
-        public EntryCategoryAdd()
+        public EntryCustomer()
         {
             InitializeComponent();
 
@@ -37,7 +38,8 @@ namespace POS_SYSTEM
 
         private void admindashboard_Load(object sender, EventArgs e)
         {
-            
+            loadData();
+            glbldgv1 = dgv1;
         }
 
         private void admindashboard_FormClosing(object sender, FormClosingEventArgs e)
@@ -45,44 +47,12 @@ namespace POS_SYSTEM
             /*Application.Exit();*/
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                mysqliconnection = new MySqlConnection(mysqlconnection.MyConnection2);
-                mysqliconnection.Open();
-
-                sql = "INSERT INTO `tblcategory`(`category_id`, `category_name`) VALUES (NULL, @_categoryname)";
-                mycommand = new MySqlCommand(sql, mysqliconnection);
-                mycommand.Parameters.Add("_categoryname", MySqlDbType.VarChar).Value = txtCategoryName.Text;
-                int n1 = mycommand.ExecuteNonQuery();
-                mysqliconnection.Close();
-
-                MessageBox.Show("Data Save!");
-                loadData();
-            }
-            catch (Exception ex)
-            {
-                System.Windows.Forms.MessageBox.Show(ex.Message);
-            }
-            finally
-            {
-                //dr.Close();
-                mysqliconnection.Close();
-            }
-            
-        }
-
         private void loadData()
         {
-            EntryCategory.glbldgv1.DataSource = null;
-            EntryCategory.glbldgv1.Rows.Clear();
-            EntryCategory.glbldgv1.Columns.Clear();
-
             mysqliconnection = new MySqlConnection(mysqlconnection.MyConnection2);
             mysqliconnection.Open();
 
-            sql = "SELECT category_id, category_name FROM tblcategory";
+            sql = "SELECT customer_id, costumer_name, address, contact_number FROM tblcustomer";
 
             da = new MySqlDataAdapter(sql, mysqliconnection);
             MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder(da);
@@ -92,33 +62,68 @@ namespace POS_SYSTEM
             bindingSource.DataSource = dataTable;
 
             DataGridViewTextBoxColumn ColumnProductCode = new DataGridViewTextBoxColumn();
-            ColumnProductCode.HeaderText = "Category Code";
+            ColumnProductCode.HeaderText = "Customer Code";
             //ColumnStockNumber.Width = 80;
-            ColumnProductCode.DataPropertyName = "category_id";
+            ColumnProductCode.DataPropertyName = "customer_id";
             ColumnProductCode.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             ColumnProductCode.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             ColumnProductCode.Visible = true;
             ColumnProductCode.ReadOnly = true;
             ColumnProductCode.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            EntryCategory.glbldgv1.Columns.Add(ColumnProductCode);
+            dgv1.Columns.Add(ColumnProductCode);
 
             DataGridViewTextBoxColumn ColumnProductName = new DataGridViewTextBoxColumn();
-            ColumnProductName.HeaderText = "Category Name";
+            ColumnProductName.HeaderText = "Customer Name";
             //ColumnStockNumber.Width = 80;
-            ColumnProductName.DataPropertyName = "category_name";
+            ColumnProductName.DataPropertyName = "costumer_name";
             ColumnProductName.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             ColumnProductName.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             ColumnProductName.Visible = true;
             ColumnProductName.ReadOnly = true;
             ColumnProductName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            EntryCategory.glbldgv1.Columns.Add(ColumnProductName);
+            dgv1.Columns.Add(ColumnProductName);
+
+            DataGridViewTextBoxColumn ColumnAddressName = new DataGridViewTextBoxColumn();
+            ColumnAddressName.HeaderText = "Address";
+            //ColumnStockNumber.Width = 80;
+            ColumnAddressName.DataPropertyName = "address";
+            ColumnAddressName.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            ColumnAddressName.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            ColumnAddressName.Visible = true;
+            ColumnAddressName.ReadOnly = true;
+            ColumnAddressName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgv1.Columns.Add(ColumnAddressName);
+
+            DataGridViewTextBoxColumn ColumnContact = new DataGridViewTextBoxColumn();
+            ColumnContact.HeaderText = "Contact Number";
+            //ColumnStockNumber.Width = 80;
+            ColumnContact.DataPropertyName = "contact_number";
+            ColumnContact.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            ColumnContact.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            ColumnContact.Visible = true;
+            ColumnContact.ReadOnly = true;
+            ColumnContact.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgv1.Columns.Add(ColumnContact);
 
 
-
-            EntryCategory.glbldgv1.DataSource = bindingSource;
-            EntryCategory.glbldgv1.AllowUserToAddRows = false;
+            dgv1.DataSource = bindingSource;
+            dgv1.AllowUserToAddRows = false;
             mysqliconnection.Close();
 
+            /*dgv1.Columns[2].DefaultCellStyle.Format = "N2";*/
+        }
+
+        private void txtSearch_TextChanged_1(object sender, EventArgs e)
+        {
+            DataView dv = dataTable.DefaultView;
+            dv.RowFilter = "costumer_name LIKE '" + txtSearch.Text + "%'";
+            dgv1.DataSource = dv;
+        }
+
+        private void addproduct_Click(object sender, EventArgs e)
+        {
+            EntryCustomerAdd entryCustomerAdd = new EntryCustomerAdd();
+            entryCustomerAdd.Show();
         }
     }
 }

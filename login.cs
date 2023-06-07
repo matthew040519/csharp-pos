@@ -23,6 +23,7 @@ namespace POS_SYSTEM
         connection mysqlconnection = new connection();
         public string txtuserexist, txtpassexist;
         MySqlDataReader dr;
+        public static string branch_code, user_id;
 
         public login()
         {
@@ -55,7 +56,7 @@ namespace POS_SYSTEM
             }
             else
             {
-                MessageBox.Show("Password is invalid", "GL");
+                /*MessageBox.Show("Password is invalid", "GL");*/
                 txtpassword.Focus();
             }
         }
@@ -140,12 +141,21 @@ namespace POS_SYSTEM
                 mysqliconnection = new MySqlConnection(mysqlconnection.MyConnection2);
                 mysqliconnection.Open();
 
-                mycommand = new MySqlCommand("SELECT username, password FROM tbluser WHERE username='" + txtusername.Text.Trim() + "'", mysqliconnection);
+                mycommand = new MySqlCommand("SELECT user_id, username, password, branch_id FROM tbluser WHERE username='" + txtusername.Text.Trim() + "'", mysqliconnection);
                 dr = mycommand.ExecuteReader();
-                while (dr.Read())
+                if(dr.HasRows)
                 {
-                    txtuserexist = dr["username"].ToString();
-                    txtpassexist = dr["password"].ToString();
+                    while (dr.Read())
+                    {
+                        txtuserexist = dr["username"].ToString();
+                        txtpassexist = dr["password"].ToString();
+                        branch_code = dr["branch_id"].ToString();
+                        user_id = dr["user_id"].ToString();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Wrong Username or Password", "Error", MessageBoxButtons.OK ,MessageBoxIcon.Error);
                 }
                 dr.Close();
                 mysqliconnection.Close();

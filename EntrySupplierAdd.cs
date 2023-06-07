@@ -12,7 +12,7 @@ using System.Windows.Forms;
 
 namespace POS_SYSTEM
 {
-    public partial class EntryProductAdd : MaterialForm
+    public partial class EntrySupplierAdd : MaterialForm
     {
         readonly MaterialSkin.MaterialSkinManager materialSkinManager;
         MySqlConnection mysqliconnection;
@@ -22,11 +22,8 @@ namespace POS_SYSTEM
         string sql;
         private DataTable dataTable = null;
         BindingSource bindingSource = new BindingSource();
-        ClsComboBox ClsComboBox1 = new ClsComboBox();
-        Clsgetsomething Clsgetsomething1 = new Clsgetsomething();
-        private readonly Random _random = new Random();
 
-        public EntryProductAdd()
+        public EntrySupplierAdd()
         {
             InitializeComponent();
 
@@ -40,20 +37,7 @@ namespace POS_SYSTEM
 
         private void admindashboard_Load(object sender, EventArgs e)
         {
-            int randomNum = _random.Next(10000000, 99999999);
-            buildcboCustCode();
-            txtProductCode.Text = Clsgetsomething1.clsGeProductCode(randomNum.ToString());
-            txtProductName.Focus();
-        }
-
-        private void buildcboCustCode()
-        {
-            cboCategory.DataSource = null;
-            ClsComboBox1.ALCategory.Clear();
-            ClsComboBox1.ClsBuildCategory();
-            this.cboCategory.DataSource = (ClsComboBox1.ALCategory);
-            this.cboCategory.DisplayMember = "Display";
-            this.cboCategory.ValueMember = "Value";
+            
         }
 
         private void admindashboard_FormClosing(object sender, FormClosingEventArgs e)
@@ -68,14 +52,9 @@ namespace POS_SYSTEM
                 mysqliconnection = new MySqlConnection(mysqlconnection.MyConnection2);
                 mysqliconnection.Open();
 
-                sql = "INSERT INTO `tblproduct`(`product_id`, `product_code`, `product_name`, `unit_price`, `category_id`, `UM`)" +
-                    " VALUES (NULL,@_productcode,@_productname,@_unitprice,@_categoryid,@_um)";
+                sql = "INSERT INTO `tblsupplier`(`supplier_id`, `supplier_name`) VALUES (NULL, @_suppliername)";
                 mycommand = new MySqlCommand(sql, mysqliconnection);
-                mycommand.Parameters.Add("_productcode", MySqlDbType.VarChar).Value = txtProductCode.Text;
-                mycommand.Parameters.Add("_productname", MySqlDbType.VarChar).Value = txtProductName.Text;
-                mycommand.Parameters.Add("_unitprice", MySqlDbType.VarChar).Value = txtUP.Text;
-                mycommand.Parameters.Add("_categoryid", MySqlDbType.VarChar).Value = cboCategory.SelectedValue.ToString();
-                mycommand.Parameters.Add("_um", MySqlDbType.VarChar).Value = txtUM.Text;
+                mycommand.Parameters.Add("_suppliername", MySqlDbType.VarChar).Value = txtSupplierName.Text;
                 int n1 = mycommand.ExecuteNonQuery();
                 mysqliconnection.Close();
 
@@ -96,14 +75,14 @@ namespace POS_SYSTEM
 
         private void loadData()
         {
-            EntryProduct.glbldgv1.DataSource = null;
-            EntryProduct.glbldgv1.Rows.Clear();
-            EntryProduct.glbldgv1.Columns.Clear();
+            EntrySupplier.glbldgv1.DataSource = null;
+            EntrySupplier.glbldgv1.Rows.Clear();
+            EntrySupplier.glbldgv1.Columns.Clear();
 
             mysqliconnection = new MySqlConnection(mysqlconnection.MyConnection2);
             mysqliconnection.Open();
 
-            sql = "SELECT product_code, product_name, unit_price, UM FROM tblproduct";
+            sql = "SELECT supplier_id, supplier_name FROM tblsupplier";
 
             da = new MySqlDataAdapter(sql, mysqliconnection);
             MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder(da);
@@ -113,57 +92,33 @@ namespace POS_SYSTEM
             bindingSource.DataSource = dataTable;
 
             DataGridViewTextBoxColumn ColumnProductCode = new DataGridViewTextBoxColumn();
-            ColumnProductCode.HeaderText = "Product Code";
+            ColumnProductCode.HeaderText = "Category Code";
             //ColumnStockNumber.Width = 80;
-            ColumnProductCode.DataPropertyName = "product_code";
+            ColumnProductCode.DataPropertyName = "supplier_id";
             ColumnProductCode.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             ColumnProductCode.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            ColumnProductCode.Visible = true;
+            ColumnProductCode.Visible = false;
             ColumnProductCode.ReadOnly = true;
             ColumnProductCode.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            EntryProduct.glbldgv1.Columns.Add(ColumnProductCode);
+            EntrySupplier.glbldgv1.Columns.Add(ColumnProductCode);
 
             DataGridViewTextBoxColumn ColumnProductName = new DataGridViewTextBoxColumn();
-            ColumnProductName.HeaderText = "Product Name";
+            ColumnProductName.HeaderText = "Supplier Name";
             //ColumnStockNumber.Width = 80;
-            ColumnProductName.DataPropertyName = "product_name";
+            ColumnProductName.DataPropertyName = "supplier_name";
             ColumnProductName.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             ColumnProductName.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             ColumnProductName.Visible = true;
             ColumnProductName.ReadOnly = true;
             ColumnProductName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            EntryProduct.glbldgv1.Columns.Add(ColumnProductName);
-
-
-            DataGridViewTextBoxColumn ColumnProductPrice = new DataGridViewTextBoxColumn();
-            ColumnProductPrice.HeaderText = "Unit Price";
-            //ColumnStockNumber.Width = 80;
-            ColumnProductPrice.DataPropertyName = "unit_price";
-            ColumnProductPrice.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            ColumnProductPrice.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            ColumnProductPrice.Visible = true;
-            ColumnProductPrice.ReadOnly = true;
-            ColumnProductPrice.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            EntryProduct.glbldgv1.Columns.Add(ColumnProductPrice);
-
-            DataGridViewTextBoxColumn ColumnUM = new DataGridViewTextBoxColumn();
-            ColumnUM.HeaderText = "UM";
-            //ColumnStockNumber.Width = 80;
-            ColumnUM.DataPropertyName = "UM";
-            ColumnUM.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            ColumnUM.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
-            ColumnUM.Visible = true;
-            ColumnUM.ReadOnly = true;
-            ColumnUM.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-            EntryProduct.glbldgv1.Columns.Add(ColumnUM);
+            EntrySupplier.glbldgv1.Columns.Add(ColumnProductName);
 
 
 
-            EntryProduct.glbldgv1.DataSource = bindingSource;
-            EntryProduct.glbldgv1.AllowUserToAddRows = false;
+            EntrySupplier.glbldgv1.DataSource = bindingSource;
+            EntrySupplier.glbldgv1.AllowUserToAddRows = false;
             mysqliconnection.Close();
 
-            EntryProduct.glbldgv1.Columns[2].DefaultCellStyle.Format = "N2";
         }
     }
 }

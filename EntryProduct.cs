@@ -52,7 +52,7 @@ namespace POS_SYSTEM
             mysqliconnection = new MySqlConnection(mysqlconnection.MyConnection2);
             mysqliconnection.Open();
 
-            sql = "SELECT product_code, product_name, unit_price, UM FROM tblproduct";
+            sql = "SELECT product_id, product_code, product_name, unit_price, UM, category_id FROM tblproduct";
 
             da = new MySqlDataAdapter(sql, mysqliconnection);
             MySqlCommandBuilder commandBuilder = new MySqlCommandBuilder(da);
@@ -60,6 +60,17 @@ namespace POS_SYSTEM
             da.Fill(dataTable);
             bindingSource = new BindingSource();
             bindingSource.DataSource = dataTable;
+
+            DataGridViewTextBoxColumn ColumnProductid = new DataGridViewTextBoxColumn();
+            ColumnProductid.HeaderText = "Product ID";
+            //ColumnStockNumber.Width = 80;
+            ColumnProductid.DataPropertyName = "product_id";
+            ColumnProductid.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            ColumnProductid.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
+            ColumnProductid.Visible = false;
+            ColumnProductid.ReadOnly = true;
+            ColumnProductid.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgv1.Columns.Add(ColumnProductid);
 
             DataGridViewTextBoxColumn ColumnProductCode = new DataGridViewTextBoxColumn();
             ColumnProductCode.HeaderText = "Product Code";
@@ -79,7 +90,7 @@ namespace POS_SYSTEM
             ColumnProductName.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             ColumnProductName.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             ColumnProductName.Visible = true;
-            ColumnProductName.ReadOnly = true;
+            ColumnProductName.ReadOnly = false;
             ColumnProductName.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgv1.Columns.Add(ColumnProductName);
 
@@ -91,9 +102,27 @@ namespace POS_SYSTEM
             ColumnProductPrice.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             ColumnProductPrice.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             ColumnProductPrice.Visible = true;
-            ColumnProductPrice.ReadOnly = true;
+            ColumnProductPrice.ReadOnly = false;
             ColumnProductPrice.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgv1.Columns.Add(ColumnProductPrice);
+
+            string selectQueryStringtblCategory = "SELECT category_id, category_name FROM tblCategory ORDER BY category_name";
+            MySqlDataAdapter sqlDataAdaptertblCategory = new MySqlDataAdapter(selectQueryStringtblCategory, mysqlconnection.MyConnection2);
+            MySqlCommandBuilder sqlCommandBuildertblCategory = new MySqlCommandBuilder(sqlDataAdaptertblCategory);
+            DataTable dataTabletblCategory = new DataTable();
+            sqlDataAdaptertblCategory.Fill(dataTabletblCategory);
+            BindingSource bindingSourcetblCategory = new BindingSource();
+            bindingSourcetblCategory.DataSource = dataTabletblCategory;
+
+            DataGridViewComboBoxColumn ColumnCatCode = new DataGridViewComboBoxColumn();
+            ColumnCatCode.DataPropertyName = "category_id";
+            ColumnCatCode.HeaderText = "Category";
+            ColumnCatCode.Width = 100;
+            ColumnCatCode.DataSource = bindingSourcetblCategory;
+            ColumnCatCode.ValueMember = "category_id";
+            ColumnCatCode.DisplayMember = "category_name";
+            ColumnCatCode.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            dgv1.Columns.Add(ColumnCatCode);
 
             DataGridViewTextBoxColumn ColumnUM = new DataGridViewTextBoxColumn();
             ColumnUM.HeaderText = "UM";
@@ -102,7 +131,7 @@ namespace POS_SYSTEM
             ColumnUM.HeaderCell.Style.Alignment = DataGridViewContentAlignment.MiddleCenter;
             ColumnUM.DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleLeft;
             ColumnUM.Visible = true;
-            ColumnUM.ReadOnly = true;
+            ColumnUM.ReadOnly = false;
             ColumnUM.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
             dgv1.Columns.Add(ColumnUM);
 
@@ -112,7 +141,7 @@ namespace POS_SYSTEM
             dgv1.AllowUserToAddRows = false;
             mysqliconnection.Close();
 
-            dgv1.Columns[2].DefaultCellStyle.Format = "N2";
+            dgv1.Columns[3].DefaultCellStyle.Format = "N2";
         }
 
         private void txtSearch_TextChanged_1(object sender, EventArgs e)
@@ -126,6 +155,19 @@ namespace POS_SYSTEM
         {
             EntryProductAdd entryProductAdd = new EntryProductAdd();
             entryProductAdd.Show();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                da.Update(dataTable);
+                MessageBox.Show("Saved", "POS");
+            }
+            catch (Exception exceptionObj)
+            {
+                MessageBox.Show(exceptionObj.Message.ToString());
+            }
         }
     }
 }

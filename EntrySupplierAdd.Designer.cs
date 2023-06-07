@@ -1,7 +1,7 @@
 ﻿
 namespace POS_SYSTEM
 {
-    partial class EntryCategoryAdd
+    partial class EntrySupplierAdd
     {
         /// <summary>
         /// Required designer variable.
@@ -30,7 +30,7 @@ namespace POS_SYSTEM
         private void InitializeComponent()
         {
             this.materialLabel1 = new MaterialSkin.Controls.MaterialLabel();
-            this.txtCategoryName = new MaterialSkin.Controls.MaterialTextBox();
+            this.txtSupplierName = new MaterialSkin.Controls.MaterialTextBox();
             this.btnSave = new MaterialSkin.Controls.MaterialButton();
             this.SuspendLayout();
             // 
@@ -43,27 +43,27 @@ namespace POS_SYSTEM
             this.materialLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
-            this.materialLabel1.Size = new System.Drawing.Size(64, 19);
+            this.materialLabel1.Size = new System.Drawing.Size(59, 19);
             this.materialLabel1.TabIndex = 0;
-            this.materialLabel1.Text = "Category";
+            this.materialLabel1.Text = "Supplier";
             // 
-            // txtCategoryName
+            // txtSupplierName
             // 
-            this.txtCategoryName.AnimateReadOnly = false;
-            this.txtCategoryName.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.txtCategoryName.Depth = 0;
-            this.txtCategoryName.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.txtCategoryName.LeadingIcon = null;
-            this.txtCategoryName.Location = new System.Drawing.Point(82, 118);
-            this.txtCategoryName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtCategoryName.MaxLength = 50;
-            this.txtCategoryName.MouseState = MaterialSkin.MouseState.OUT;
-            this.txtCategoryName.Multiline = false;
-            this.txtCategoryName.Name = "txtCategoryName";
-            this.txtCategoryName.Size = new System.Drawing.Size(268, 50);
-            this.txtCategoryName.TabIndex = 1;
-            this.txtCategoryName.Text = "";
-            this.txtCategoryName.TrailingIcon = null;
+            this.txtSupplierName.AnimateReadOnly = false;
+            this.txtSupplierName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtSupplierName.Depth = 0;
+            this.txtSupplierName.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
+            this.txtSupplierName.LeadingIcon = null;
+            this.txtSupplierName.Location = new System.Drawing.Point(82, 118);
+            this.txtSupplierName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtSupplierName.MaxLength = 50;
+            this.txtSupplierName.MouseState = MaterialSkin.MouseState.OUT;
+            this.txtSupplierName.Multiline = false;
+            this.txtSupplierName.Name = "txtSupplierName";
+            this.txtSupplierName.Size = new System.Drawing.Size(268, 50);
+            this.txtSupplierName.TabIndex = 1;
+            this.txtSupplierName.Text = "";
+            this.txtSupplierName.TrailingIcon = null;
             // 
             // btnSave
             // 
@@ -79,25 +79,25 @@ namespace POS_SYSTEM
             this.btnSave.NoAccentTextColor = System.Drawing.Color.Empty;
             this.btnSave.Size = new System.Drawing.Size(136, 36);
             this.btnSave.TabIndex = 8;
-            this.btnSave.Text = "Save Category";
+            this.btnSave.Text = "Save Supplier";
             this.btnSave.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnSave.UseAccentColor = false;
             this.btnSave.UseVisualStyleBackColor = true;
             this.btnSave.Click += new System.EventHandler(this.btnSave_Click);
             // 
-            // EntryCategoryAdd
+            // EntrySupplierAdd
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(382, 251);
             this.Controls.Add(this.btnSave);
-            this.Controls.Add(this.txtCategoryName);
+            this.Controls.Add(this.txtSupplierName);
             this.Controls.Add(this.materialLabel1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "EntryCategoryAdd";
+            this.Name = "EntrySupplierAdd";
             this.Padding = new System.Windows.Forms.Padding(4, 98, 4, 5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Add Category";
+            this.Text = "Add Supplier";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.admindashboard_FormClosing);
             this.Load += new System.EventHandler(this.admindashboard_Load);
             this.ResumeLayout(false);
@@ -108,7 +108,7 @@ namespace POS_SYSTEM
         #endregion
 
         private MaterialSkin.Controls.MaterialLabel materialLabel1;
-        private MaterialSkin.Controls.MaterialTextBox txtCategoryName;
+        private MaterialSkin.Controls.MaterialTextBox txtSupplierName;
         private MaterialSkin.Controls.MaterialButton btnSave;
     }
 }

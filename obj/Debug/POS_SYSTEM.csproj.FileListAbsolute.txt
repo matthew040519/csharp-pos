@@ -40,3 +40,9 @@ C:\Users\ACER\source\repos\POS_SYSTEM\obj\Debug\POS_SYSTEM.EntryProduct.resource
 C:\Users\ACER\source\repos\POS_SYSTEM\obj\Debug\POS_SYSTEM.EntryProductAdd.resources
 C:\Users\ACER\source\repos\POS_SYSTEM\obj\Debug\POS_SYSTEM.EntryCategory.resources
 C:\Users\ACER\source\repos\POS_SYSTEM\obj\Debug\POS_SYSTEM.EntryCategoryAdd.resources
+C:\Users\ACER\source\repos\POS_SYSTEM\obj\Debug\POS_SYSTEM.EntrySupplier.resources
+C:\Users\ACER\source\repos\POS_SYSTEM\obj\Debug\POS_SYSTEM.EntrySupplierAdd.resources
+C:\Users\ACER\source\repos\POS_SYSTEM\obj\Debug\POS_SYSTEM.EntryCustomer.resources
+C:\Users\ACER\source\repos\POS_SYSTEM\obj\Debug\POS_SYSTEM.EntryCustomerAdd.resources
+C:\Users\ACER\source\repos\POS_SYSTEM\obj\Debug\POS_SYSTEM.ProductEntry.resources
+C:\Users\ACER\source\repos\POS_SYSTEM\obj\Debug\POS_SYSTEM.VoucherPD.resources

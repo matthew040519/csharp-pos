@@ -96,6 +96,31 @@
   <ItemGroup>
     <Compile Include="Clsaddvalue.cs" />
     <Compile Include="ClsComboBox.cs" />
+    <Compile Include="Clsgetsomething.cs" />
+    <Compile Include="EntryCustomerAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntryCustomerAdd.Designer.cs">
+      <DependentUpon>EntryCustomerAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EntryCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntryCustomer.Designer.cs">
+      <DependentUpon>EntryCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EntrySupplierAdd.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntrySupplierAdd.Designer.cs">
+      <DependentUpon>EntrySupplierAdd.cs</DependentUpon>
+    </Compile>
+    <Compile Include="EntrySupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntrySupplier.Designer.cs">
+      <DependentUpon>EntrySupplier.cs</DependentUpon>
+    </Compile>
     <Compile Include="EntryCategory.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -133,8 +158,32 @@
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
     </Compile>
+    <Compile Include="ProductEntry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductEntry.Designer.cs">
+      <DependentUpon>ProductEntry.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="VoucherPD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="VoucherPD.Designer.cs">
+      <DependentUpon>VoucherPD.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="EntryCustomerAdd.resx">
+      <DependentUpon>EntryCustomerAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntryCustomer.resx">
+      <DependentUpon>EntryCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntrySupplierAdd.resx">
+      <DependentUpon>EntrySupplierAdd.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EntrySupplier.resx">
+      <DependentUpon>EntrySupplier.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="EntryCategory.resx">
       <DependentUpon>EntryCategory.cs</DependentUpon>
     </EmbeddedResource>
@@ -153,6 +202,9 @@
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ProductEntry.resx">
+      <DependentUpon>ProductEntry.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -162,6 +214,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="VoucherPD.resx">
+      <DependentUpon>VoucherPD.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

@@ -41,7 +41,7 @@ namespace POS_SYSTEM
             this.materialLabel1.AutoSize = true;
             this.materialLabel1.Depth = 0;
             this.materialLabel1.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel1.Location = new System.Drawing.Point(69, 235);
+            this.materialLabel1.Location = new System.Drawing.Point(38, 166);
             this.materialLabel1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel1.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel1.Name = "materialLabel1";
@@ -58,7 +58,7 @@ namespace POS_SYSTEM
             this.txtusername.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtusername.HideSelection = true;
             this.txtusername.LeadingIcon = null;
-            this.txtusername.Location = new System.Drawing.Point(202, 206);
+            this.txtusername.Location = new System.Drawing.Point(118, 146);
             this.txtusername.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtusername.MaxLength = 32767;
             this.txtusername.MouseState = MaterialSkin.MouseState.OUT;
@@ -71,7 +71,7 @@ namespace POS_SYSTEM
             this.txtusername.SelectionLength = 0;
             this.txtusername.SelectionStart = 0;
             this.txtusername.ShortcutsEnabled = true;
-            this.txtusername.Size = new System.Drawing.Size(375, 48);
+            this.txtusername.Size = new System.Drawing.Size(274, 48);
             this.txtusername.TabIndex = 1;
             this.txtusername.TabStop = false;
             this.txtusername.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -88,7 +88,7 @@ namespace POS_SYSTEM
             this.txtpassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtpassword.HideSelection = true;
             this.txtpassword.LeadingIcon = null;
-            this.txtpassword.Location = new System.Drawing.Point(202, 315);
+            this.txtpassword.Location = new System.Drawing.Point(117, 204);
             this.txtpassword.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtpassword.MaxLength = 32767;
             this.txtpassword.MouseState = MaterialSkin.MouseState.OUT;
@@ -101,7 +101,7 @@ namespace POS_SYSTEM
             this.txtpassword.SelectionLength = 0;
             this.txtpassword.SelectionStart = 0;
             this.txtpassword.ShortcutsEnabled = true;
-            this.txtpassword.Size = new System.Drawing.Size(375, 48);
+            this.txtpassword.Size = new System.Drawing.Size(274, 48);
             this.txtpassword.TabIndex = 3;
             this.txtpassword.TabStop = false;
             this.txtpassword.TextAlign = System.Windows.Forms.HorizontalAlignment.Left;
@@ -114,7 +114,7 @@ namespace POS_SYSTEM
             this.materialLabel2.AutoSize = true;
             this.materialLabel2.Depth = 0;
             this.materialLabel2.Font = new System.Drawing.Font("Roboto", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
-            this.materialLabel2.Location = new System.Drawing.Point(69, 345);
+            this.materialLabel2.Location = new System.Drawing.Point(38, 223);
             this.materialLabel2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.materialLabel2.MouseState = MaterialSkin.MouseState.HOVER;
             this.materialLabel2.Name = "materialLabel2";
@@ -129,7 +129,7 @@ namespace POS_SYSTEM
             this.btnLogin.Depth = 0;
             this.btnLogin.HighEmphasis = true;
             this.btnLogin.Icon = null;
-            this.btnLogin.Location = new System.Drawing.Point(482, 426);
+            this.btnLogin.Location = new System.Drawing.Point(328, 276);
             this.btnLogin.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
             this.btnLogin.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnLogin.Name = "btnLogin";
@@ -144,9 +144,9 @@ namespace POS_SYSTEM
             // 
             // login
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(639, 531);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(144F, 144F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
+            this.ClientSize = new System.Drawing.Size(439, 363);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.txtpassword);
             this.Controls.Add(this.materialLabel2);

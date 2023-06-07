@@ -51,5 +51,23 @@ namespace POS_SYSTEM
             EntryCategory entryCategory = new EntryCategory();
             entryCategory.Show();
         }
+
+        private void supplierToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EntrySupplier entrySupplier = new EntrySupplier();
+            entrySupplier.Show();
+        }
+
+        private void customerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            EntryCustomer entryCustomer = new EntryCustomer();
+            entryCustomer.Show();
+        }
+
+        private void purchaseOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            VoucherPD voucherPO = new VoucherPD();
+            voucherPO.Show();
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿
 namespace POS_SYSTEM
 {
-    partial class EntryCategory
+    partial class EntryCustomer
     {
         /// <summary>
         /// Required designer variable.
@@ -73,7 +73,7 @@ namespace POS_SYSTEM
             this.btnaddcategory.NoAccentTextColor = System.Drawing.Color.Empty;
             this.btnaddcategory.Size = new System.Drawing.Size(129, 36);
             this.btnaddcategory.TabIndex = 1;
-            this.btnaddcategory.Text = "Add Category";
+            this.btnaddcategory.Text = "Add Customer";
             this.btnaddcategory.Type = MaterialSkin.Controls.MaterialButton.MaterialButtonType.Contained;
             this.btnaddcategory.UseAccentColor = false;
             this.btnaddcategory.UseVisualStyleBackColor = true;
@@ -100,7 +100,7 @@ namespace POS_SYSTEM
             this.txtSearch.TabIndex = 3;
             this.txtSearch.TextChanged += new System.EventHandler(this.txtSearch_TextChanged_1);
             // 
-            // EntryCategory
+            // EntryCustomer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -110,7 +110,7 @@ namespace POS_SYSTEM
             this.Controls.Add(this.btnaddcategory);
             this.Controls.Add(this.dgv1);
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.Name = "EntryCategory";
+            this.Name = "EntryCustomer";
             this.Padding = new System.Windows.Forms.Padding(4, 98, 4, 5);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Category";

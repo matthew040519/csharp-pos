@@ -61,7 +61,7 @@ namespace POS_SYSTEM
             this.txtProductCode.AnimateReadOnly = false;
             this.txtProductCode.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtProductCode.Depth = 0;
-            this.txtProductCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProductCode.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtProductCode.LeadingIcon = null;
             this.txtProductCode.Location = new System.Drawing.Point(171, 103);
             this.txtProductCode.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -69,7 +69,6 @@ namespace POS_SYSTEM
             this.txtProductCode.MouseState = MaterialSkin.MouseState.OUT;
             this.txtProductCode.Multiline = false;
             this.txtProductCode.Name = "txtProductCode";
-            this.txtProductCode.ReadOnly = true;
             this.txtProductCode.Size = new System.Drawing.Size(366, 50);
             this.txtProductCode.TabIndex = 1;
             this.txtProductCode.Text = "";
@@ -80,7 +79,7 @@ namespace POS_SYSTEM
             this.txtProductName.AnimateReadOnly = false;
             this.txtProductName.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtProductName.Depth = 0;
-            this.txtProductName.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtProductName.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtProductName.LeadingIcon = null;
             this.txtProductName.Location = new System.Drawing.Point(171, 163);
             this.txtProductName.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -126,7 +125,7 @@ namespace POS_SYSTEM
             this.txtUM.AnimateReadOnly = false;
             this.txtUM.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUM.Depth = 0;
-            this.txtUM.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUM.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtUM.LeadingIcon = null;
             this.txtUM.Location = new System.Drawing.Point(171, 223);
             this.txtUM.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -144,7 +143,7 @@ namespace POS_SYSTEM
             this.txtUP.AnimateReadOnly = false;
             this.txtUP.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtUP.Depth = 0;
-            this.txtUP.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtUP.Font = new System.Drawing.Font("Roboto", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Pixel);
             this.txtUP.LeadingIcon = null;
             this.txtUP.Location = new System.Drawing.Point(171, 283);
             this.txtUP.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -173,11 +172,13 @@ namespace POS_SYSTEM
             // 
             // btnSave
             // 
+            this.btnSave.AutoSize = false;
+            this.btnSave.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btnSave.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             this.btnSave.Depth = 0;
             this.btnSave.HighEmphasis = true;
             this.btnSave.Icon = null;
-            this.btnSave.Location = new System.Drawing.Point(369, 416);
+            this.btnSave.Location = new System.Drawing.Point(369, 406);
             this.btnSave.Margin = new System.Windows.Forms.Padding(6, 9, 6, 9);
             this.btnSave.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnSave.Name = "btnSave";
@@ -231,7 +232,7 @@ namespace POS_SYSTEM
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(570, 487);
+            this.ClientSize = new System.Drawing.Size(570, 469);
             this.Controls.Add(this.cboCategory);
             this.Controls.Add(this.materialLabel5);
             this.Controls.Add(this.btnSave);

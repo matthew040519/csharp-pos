@@ -19,6 +19,10 @@ namespace POS_SYSTEM
         ClsComboBox ClsComboBox1 = new ClsComboBox();
         public static DataGridView glbldgv1;
         public static MaterialTextBox2 glbltxttotal, glbltxttotaldisct;
+        MySqlConnection mysqliconnection;
+        MySqlCommand mycommand;
+        connection mysqlconnection = new connection();
+        string sql;
 
         public VoucherPD()
         {
@@ -34,7 +38,7 @@ namespace POS_SYSTEM
 
         private void VoucherPO_Load(object sender, EventArgs e)
         {
-            txtDocnum.Text = clsgetsomething1.VoucherAutoNumber("PO");
+            txtDocnum.Text = clsgetsomething1.VoucherAutoNumber("PD");
             buildcboSupplier();
             txtDate.Text = clsgetsomething1.ClsGetDefaultDate();
             glbldgv1 = dgv1;
@@ -55,7 +59,61 @@ namespace POS_SYSTEM
 
         private void btnSave_Click(object sender, EventArgs e)
         {
+            mysqliconnection = new MySqlConnection(mysqlconnection.MyConnection2);
+            mysqliconnection.Open();
 
+            string sql1;
+
+            sql = "INSERT INTO `tbltransaction`(`transaction_id`, `docnum`, `voucher`, `user_id`, " +
+                "`branch_id`, `tdate`, `supplier_id`, `Remarks`, `reference`) " +
+                "VALUES (NULL,@_docnum, @_voucher, @_userid,@_branchid," +
+                "@_tdate,@_supplierid,@_remarks,@_reference)";
+
+            sql1 = "INSERT INTO `tblproducttransction`(`transaction_id`, `docnum`, `voucher`, `product_code`, `PIn`," +
+                " `POut`, `discount`, `percent_discount`, `UM`, `UP`, `Cost`, `Vat`) " +
+                "VALUES (NULL,@_docnum, @_voucher, @_productcode, @_PIn," +
+                "@_POut,@_discount,@_percent,@_UM,@_UP,@_Cost,@_Vat)";
+
+            mycommand = new MySqlCommand(sql, mysqliconnection);
+            mycommand.Parameters.Add("_docnum", MySqlDbType.VarChar).Value = "PD" + txtDocnum.Text;
+            mycommand.Parameters.Add("_voucher", MySqlDbType.VarChar).Value = "PD";
+            mycommand.Parameters.Add("_userid", MySqlDbType.VarChar).Value = login.user_id;
+            mycommand.Parameters.Add("_branchid", MySqlDbType.VarChar).Value = login.branch_code;
+            mycommand.Parameters.Add("_tdate", MySqlDbType.VarChar).Value = txtDate.Text;
+            mycommand.Parameters.Add("_supplierid", MySqlDbType.VarChar).Value = cboSupplier.SelectedValue.ToString();
+            mycommand.Parameters.Add("_remarks", MySqlDbType.VarChar).Value = txtRemarks.Text;
+            mycommand.Parameters.Add("_reference", MySqlDbType.VarChar).Value = txtReference.Text;
+            int n1 = mycommand.ExecuteNonQuery();
+
+            DataGridViewRow row1 = null;
+            for (int x = 0; x < dgv1.Rows.Count -1; x++)
+            {
+                row1 = dgv1.Rows[x];
+
+                mycommand = new MySqlCommand(sql1, mysqliconnection);
+                mycommand.Parameters.Add("_docnum", MySqlDbType.VarChar).Value = "PD" + txtDocnum.Text;
+                mycommand.Parameters.Add("_voucher", MySqlDbType.VarChar).Value = "PD";
+                mycommand.Parameters.Add("_productcode", MySqlDbType.VarChar).Value = row1.Cells[0].Value;
+                mycommand.Parameters.Add("_PIn", MySqlDbType.Decimal).Value = row1.Cells[2].Value;
+                mycommand.Parameters.Add("_POut", MySqlDbType.Decimal).Value = 0;
+                mycommand.Parameters.Add("_discount", MySqlDbType.Decimal).Value = row1.Cells[4].Value;
+                mycommand.Parameters.Add("_percent", MySqlDbType.VarChar).Value = 0;
+                mycommand.Parameters.Add("_UM", MySqlDbType.VarChar).Value = "PIECE";
+                mycommand.Parameters.Add("_UP", MySqlDbType.Decimal).Value = row1.Cells[3].Value;
+                mycommand.Parameters.Add("_Cost", MySqlDbType.Decimal).Value = row1.Cells[5].Value;
+                mycommand.Parameters.Add("_Vat", MySqlDbType.Decimal).Value = 0;
+                int n2 = mycommand.ExecuteNonQuery();
+            }
+
+            mysqliconnection.Close();
+
+            MessageBox.Show("Data Save!");
+
+            txtDocnum.Text = clsgetsomething1.VoucherAutoNumber("PD");
+            dgv1.Rows.Clear();
+            txtReference.Text = "PD" + txtDocnum.Text;
+            txtTotal.Text = "0.00";
+            txtTotalDiscount.Text = "0.00";
         }
 
         private void btnClose_Click(object sender, EventArgs e)

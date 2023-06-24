@@ -42,32 +42,130 @@ namespace POS_SYSTEM
 
         private void productToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EntryProduct frmproduct = new EntryProduct();
-            frmproduct.Show();
+            if(login.level == "1")
+            {
+                EntryProduct frmproduct = new EntryProduct();
+                frmproduct.Show();
+            }
+            else
+            {
+                MessageBox.Show("You do not have necessary permission to open this file", "User", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void categoryToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EntryCategory entryCategory = new EntryCategory();
-            entryCategory.Show();
+            if (login.level == "1")
+            {
+                EntryCategory entryCategory = new EntryCategory();
+                entryCategory.Show();
+            }
+            else
+            {
+                MessageBox.Show("You do not have necessary permission to open this file", "User", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+            
         }
 
         private void supplierToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EntrySupplier entrySupplier = new EntrySupplier();
-            entrySupplier.Show();
+            
+            if (login.level == "1")
+            {
+                EntrySupplier entrySupplier = new EntrySupplier();
+                entrySupplier.Show();
+            }
+            else
+            {
+                MessageBox.Show("You do not have necessary permission to open this file", "User", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void customerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            EntryCustomer entryCustomer = new EntryCustomer();
-            entryCustomer.Show();
+            
+            if (login.level == "1")
+            {
+                EntryCustomer entryCustomer = new EntryCustomer();
+                entryCustomer.Show();
+            }
+            else
+            {
+                MessageBox.Show("You do not have necessary permission to open this file", "User", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
 
         private void purchaseOrderToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            VoucherPD voucherPO = new VoucherPD();
-            voucherPO.Show();
+            
+            if (login.level == "1")
+            {
+                VoucherPD voucherPO = new VoucherPD();
+                voucherPO.Show();
+            }
+            else
+            {
+                MessageBox.Show("You do not have necessary permission to open this file", "User", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void userToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            
+            if (login.level == "1")
+            {
+                EntryUser entryUser = new EntryUser();
+                entryUser.Show();
+            }
+            else
+            {
+                MessageBox.Show("You do not have necessary permission to open this file", "User", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void mainOrderToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Order order = new Order();
+            order.Show();
+        }
+
+        private void admindashboard_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.A)
+            {
+                MessageBox.Show("A");
+            }
+        }
+
+        private void voidListToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (login.level == "1")
+            {
+                EntryUser entryUser = new EntryUser();
+                entryUser.Show();
+            }
+            else
+            {
+                MessageBox.Show("You do not have necessary permission to open this file", "User", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void voucherToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (login.level == "1")
+            {
+                rptVoucherPD rptVoucherPD = new rptVoucherPD();
+                rptVoucherPD.Show();
+            }
+            else
+            {
+                MessageBox.Show("You do not have necessary permission to open this file", "User", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void inventoryToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

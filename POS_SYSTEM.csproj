@@ -33,9 +33,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AxShockwaveFlashObjects, Version=1.0.0.0, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="BouncyCastle.Crypto, Version=1.9.0.0, Culture=neutral, PublicKeyToken=0e99375e54769942, processorArchitecture=MSIL">
       <HintPath>packages\Portable.BouncyCastle.1.9.0\lib\net40\BouncyCastle.Crypto.dll</HintPath>
     </Reference>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.4000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="Google.Protobuf, Version=3.23.2.0, Culture=neutral, PublicKeyToken=a7d26565bac4d604, processorArchitecture=MSIL">
       <HintPath>packages\Google.Protobuf.3.23.2\lib\net45\Google.Protobuf.dll</HintPath>
     </Reference>
@@ -83,6 +88,7 @@
     </Reference>
     <Reference Include="System.Transactions" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -96,7 +102,39 @@
   <ItemGroup>
     <Compile Include="Clsaddvalue.cs" />
     <Compile Include="ClsComboBox.cs" />
+    <Compile Include="clsexist.cs" />
     <Compile Include="Clsgetsomething.cs" />
+    <Compile Include="CROrder.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CROrder.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CRrptVouchersPD.cs">
+      <DependentUpon>CRrptVouchersPD.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="CRrptVouchers.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRrptVouchers.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="DSOR.cs">
+      <DependentUpon>DSOR.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DSOR.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSOR.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="DSVoucher.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DSVoucher.xsd</DependentUpon>
+    </Compile>
     <Compile Include="EntryCustomerAdd.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -152,11 +190,29 @@
       <DependentUpon>admindashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="connection.cs" />
+    <Compile Include="EntryUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EntryUser.Designer.cs">
+      <DependentUpon>EntryUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="login.Designer.cs">
       <DependentUpon>login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Order.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Order.Designer.cs">
+      <DependentUpon>Order.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Payment.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Payment.Designer.cs">
+      <DependentUpon>Payment.cs</DependentUpon>
     </Compile>
     <Compile Include="ProductEntry.cs">
       <SubType>Form</SubType>
@@ -166,12 +222,30 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rptVoucherPD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rptVoucherPD.Designer.cs">
+      <DependentUpon>rptVoucherPD.cs</DependentUpon>
+    </Compile>
     <Compile Include="VoucherPD.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="VoucherPD.Designer.cs">
       <DependentUpon>VoucherPD.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CROrder.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CROrder.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRrptVouchersPD.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRrptVouchersPD.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CRrptVouchers.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRrptVouchers.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="EntryCustomerAdd.resx">
       <DependentUpon>EntryCustomerAdd.cs</DependentUpon>
     </EmbeddedResource>
@@ -199,8 +273,17 @@
     <EmbeddedResource Include="admindashboard.resx">
       <DependentUpon>admindashboard.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="EntryUser.resx">
+      <DependentUpon>EntryUser.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="login.resx">
       <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Order.resx">
+      <DependentUpon>Order.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Payment.resx">
+      <DependentUpon>Payment.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProductEntry.resx">
       <DependentUpon>ProductEntry.cs</DependentUpon>
@@ -214,9 +297,34 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="rptVoucherPD.resx">
+      <DependentUpon>rptVoucherPD.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="VoucherPD.resx">
       <DependentUpon>VoucherPD.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DSOR.xsc">
+      <DependentUpon>DSOR.xsd</DependentUpon>
+    </None>
+    <None Include="DSOR.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSOR.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DSOR.xss">
+      <DependentUpon>DSOR.xsd</DependentUpon>
+    </None>
+    <None Include="DSVoucher.xsc">
+      <DependentUpon>DSVoucher.xsd</DependentUpon>
+    </None>
+    <None Include="DSVoucher.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DSVoucher.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DSVoucher.xss">
+      <DependentUpon>DSVoucher.xsd</DependentUpon>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -230,6 +338,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

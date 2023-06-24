@@ -374,7 +374,7 @@ namespace POS_SYSTEM
             this.btnProductEntry.Depth = 0;
             this.btnProductEntry.HighEmphasis = true;
             this.btnProductEntry.Icon = null;
-            this.btnProductEntry.Location = new System.Drawing.Point(823, 754);
+            this.btnProductEntry.Location = new System.Drawing.Point(823, 751);
             this.btnProductEntry.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
             this.btnProductEntry.MouseState = MaterialSkin.MouseState.HOVER;
             this.btnProductEntry.Name = "btnProductEntry";

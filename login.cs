@@ -23,7 +23,7 @@ namespace POS_SYSTEM
         connection mysqlconnection = new connection();
         public string txtuserexist, txtpassexist;
         MySqlDataReader dr;
-        public static string branch_code, user_id;
+        public static string branch_code, user_id, level;
 
         public login()
         {
@@ -141,7 +141,7 @@ namespace POS_SYSTEM
                 mysqliconnection = new MySqlConnection(mysqlconnection.MyConnection2);
                 mysqliconnection.Open();
 
-                mycommand = new MySqlCommand("SELECT user_id, username, password, branch_id FROM tbluser WHERE username='" + txtusername.Text.Trim() + "'", mysqliconnection);
+                mycommand = new MySqlCommand("SELECT user_id, username, password, branch_id, level FROM tbluser WHERE username='" + txtusername.Text.Trim() + "'", mysqliconnection);
                 dr = mycommand.ExecuteReader();
                 if(dr.HasRows)
                 {
@@ -151,6 +151,7 @@ namespace POS_SYSTEM
                         txtpassexist = dr["password"].ToString();
                         branch_code = dr["branch_id"].ToString();
                         user_id = dr["user_id"].ToString();
+                        level = dr["level"].ToString();
                     }
                 }
                 else

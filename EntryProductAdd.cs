@@ -42,7 +42,7 @@ namespace POS_SYSTEM
         {
             int randomNum = _random.Next(10000000, 99999999);
             buildcboCustCode();
-            txtProductCode.Text = Clsgetsomething1.clsGeProductCode(randomNum.ToString());
+            /*txtProductCode.Text = Clsgetsomething1.clsGeProductCode(randomNum.ToString());*/
             txtProductName.Focus();
         }
 
@@ -81,6 +81,10 @@ namespace POS_SYSTEM
 
                 MessageBox.Show("Data Save!");
                 loadData();
+                txtProductCode.Clear();
+                txtProductName.Clear();
+                txtUM.Clear();
+                txtUP.Clear();
             }
             catch (Exception ex)
             {
